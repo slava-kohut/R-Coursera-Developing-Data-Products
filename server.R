@@ -52,7 +52,12 @@ shinyServer(function(input, output) {
   #
     
     output$plotConv <- renderPlot({
-  
+      meansCml<-cumsum(data())/1:input$numberSamples
+      g <- ggplot(data.frame(x = 1 : input$numberSamples, y = meansCml), aes(x = x, y = y))
+      g <- g + geom_line(size = 1,color="red")
+      g <- g + labs(x = "Number of simulations", y = "Mean")
+      g <- g + ggtitle("Convergence of the sample mean")
+      g+geom_hline(yintercept = 0.5)
     })
     
   #

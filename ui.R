@@ -4,12 +4,17 @@ library(shiny)
  shinyUI(fluidPage(withMathJax(),
   sidebarLayout(
     sidebarPanel(
-  
+#
+# select a distribution
+#  
       radioButtons("dist", "Choose a distribution",
                    c("Normal" = "norm", 
                      "Uniform" = "unif", 
                      "Bernoulli" = "bernoul")),
       br(),
+#
+# select a number of samples
+#
       
       sliderInput("numberSamples", 
                   "Number of samples:", 
@@ -17,7 +22,9 @@ library(shiny)
                   min = 5, 
                   max = 1000),
       br(),
-      
+#
+# select a sample size
+#      
       sliderInput("sampleSize", 
                   "Sample size:", 
                   value = 40,
@@ -30,7 +37,10 @@ library(shiny)
              tabPanel("Sample mean", plotOutput("plotMeans")), 
              tabPanel("Convergence", plotOutput("plotConv")),
              tabPanel("Summary", verbatimTextOutput("summary")), 
-             tabPanel("About", # Lesson 2
+#
+# documentation
+#
+             tabPanel("About",
                       h2("Central limit theorem"),
                       p("This application illustates the central limit theorem on the example of three distributions:"),
                       br(),
