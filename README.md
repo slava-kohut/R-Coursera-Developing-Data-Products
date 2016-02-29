@@ -1,4 +1,4 @@
-# Developing DataProducts
+# Developing Data Products (Coursera)
 
 ---
 
